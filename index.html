@@ -12,10 +12,12 @@
       padding: 0;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      /* ゴシック体（Sans-serif）のフォント指定 */
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "PingFang SC", sans-serif;
       background-color: #fafafa;
       color: #111;
       padding: 0 40px;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* 容器布局 */
@@ -29,11 +31,12 @@
       padding: 40px 0;
     }
 
-    /* 左上角姓名 */
+    /* 左上角姓名（ゴシック体） */
     header h1 {
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
+      font-family: "Helvetica Neue", Arial, "Hiragino Sans", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
@@ -85,8 +88,9 @@
 
     /* 页脚 */
     footer {
-      font-size: 12px;
+      font-size: 11px;
       color: #aaa;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
@@ -101,7 +105,6 @@
     <!-- 主图区域 -->
     <main>
       <div class="main-image-wrapper" onclick="openModal('work1.jpg')">
-        <!-- 请确保上传到仓库的图片名字与这里的 work1.jpg 一致 -->
         <img src="work1.jpg" alt="Artwork">
       </div>
     </main>
