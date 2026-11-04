@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人作品集 | Portfolio</title>
+  <style>
+    /* 全局基础样式 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #fafafa;
+      color: #111;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    /* 容器居中 */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    /* 顶部页头 */
+    header {
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+    header h1 {
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 14px;
+      color: #666;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #666;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #000;
+    }
+
+    /* 作品网格排版 */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    /* 单个作品卡片 */
+    .card {
+      background: #fff;
+      border: 1px solid #f0f0f0;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    }
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+    .card-info {
+      padding: 16px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .card-meta {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* 图片放大弹窗 (Lightbox) */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 2px;
+    }
+
+    /* 页脚 */
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      font-size: 13px;
+      color: #999;
+      border-top: 1px solid #eee;
+      padding-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- 页头结构 -->
+    <header>
+      <div>
+        <h1>YOUR NAME</h1>
+        <p>Artist / Curator / Creator</p>
+      </div>
+      <nav>
+        <a href="#works">Works</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- 作品网格 -->
+    <main class="portfolio-grid" id="works">
+      
+      <!-- 作品项 1 -->
+      <div class="card" onclick="openModal('https://picsum.photos/1200/800?random=1')">
+        <img src="https://picsum.photos/600/400?random=1" alt="作品 1">
+        <div class="card-info">
+          <div class="card-title">作品标题 01</div>
+          <div class="card-meta">2026 / 媒介 / 尺寸</div>
+        </div>
+      </div>
+
+      <!-- 作品项 2 -->
+      <div class="card" onclick="openModal('https://picsum.photos/1200/800?random=2')">
+        <img src="https://picsum.photos/600/400?random=2" alt="作品 2">
+        <div class="card-info">
+          <div class="card-title">作品标题 02</div>
+          <div class="card-meta">2026 / 媒介 / 尺寸</div>
+        </div>
+      </div>
+
+      <!-- 作品项 3 -->
+      <div class="card" onclick="openModal('https://picsum.photos/1200/800?random=3')">
+        <img src="https://picsum.photos/600/400?random=3" alt="作品 3">
+        <div class="card-info">
+          <div class="card-title">作品标题 03</div>
+          <div class="card-meta">2025 / 媒介 / 尺寸</div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+      <p>© 2026 Your Name. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- 图片弹窗结构 -->
+  <div class="modal" id="modal" onclick="closeModal()">
+    <img id="modal-img" src="" alt="放大图">
+  </div>
+
+  <!-- 交互脚本 -->
+  <script>
+    function openModal(imageSrc) {
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modal-img');
+      modalImg.src = imageSrc;
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
